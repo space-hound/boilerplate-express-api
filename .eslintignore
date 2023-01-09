@@ -1,0 +1,11 @@
+# Editor configs
+.idea
+
+# Dependencies
+node_modules
+
+# Build folder
+build
+
+# Logs folder
+logs
