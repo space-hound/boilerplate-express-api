@@ -36,5 +36,19 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.20.7",
+        "@babel/core": "^7.20.12",
+        "@babel/node": "^7.20.7",
+        "@babel/plugin-transform-runtime": "^7.19.6",
+        "@babel/preset-env": "^7.20.2",
+        "@babel/runtime": "^7.20.7",
+        "babel-plugin-module-resolve": "^1.4.4",
+        "eslint": "^8.31.0",
+        "eslint-import-resolver-babel-module": "^5.3.1",
+        "eslint-plugin-import": "^2.26.0",
+        "nodemon": "^2.0.20",
+        "rimraf": "^3.0.2"
     }
 }
