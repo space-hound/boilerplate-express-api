@@ -1,0 +1,40 @@
+{
+    "license": "ISC",
+    "version": "1.0.0",
+    "name": "boilerplate-express-api",
+    "homepage": "https://github.com/space-hound/boilerplate-express-api#readme",
+    "description": "A boilerplate for express API projects.",
+    "author": {
+        "name": "Borz Alexandru Mihai",
+        "email": "alexandru.borz94@gmail.com",
+        "url": "https://github.com/space-hound"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/space-hound/boilerplate-express-api.git"
+    },
+    "bugs": {
+        "url": "https://github.com/space-hound/boilerplate-express-api/issues"
+    },
+    "keywords": [
+        "jwt",
+        "api",
+        "node",
+        "babel",
+        "express",
+        "mongodb",
+        "passport",
+        "moongose",
+        "boilerplate",
+        "jsonwebtoken",
+        "boilerplate"
+    ],
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=8.6.0"
+    },
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
