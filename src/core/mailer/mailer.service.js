@@ -1,5 +1,7 @@
 import config from 'config';
 
+import { LoggerService } from 'core/logger';
+
 import { createNodemailerTransporter } from './configs/nodemailer';
 
 import VerifyAccountEmailTemplate from './templates/verify-account-email.template';
@@ -23,7 +25,23 @@ export default class MailerService {
      * @return {Promise<void>}
      */
     static init = async () => {
-        MailerService.transporter = await createNodemailerTransporter();
+        try {
+            MailerService.transporter = await createNodemailerTransporter();
+            LoggerService.logger.info('[MAILER] Mailer initialized with success!');
+        } catch (error) {
+            LoggerService.logger.error('[MAILER] Mailer failed to be initialized, aborting process!');
+            LoggerService.logger.error(error);
+            throw error;
+        }
+    };
+
+    /**
+     * Cleans up anything that "init" may setup.
+     *
+     * @return {Promise<void>}
+     */
+    static cleanup = async () => {
+        MailerService.transporter = null;
     };
 
     /**
