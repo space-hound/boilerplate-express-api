@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 
 import config from 'config';
 
+import { LoggerService } from 'core/logger';
+
 /**
  * Database Service
  */
@@ -13,20 +15,28 @@ export default class DatabaseService {
      * @returns {Promise<void>}
      */
     static init = async () => {
-        mongoose.set('strictQuery', false);
+        try {
+            mongoose.set('strictQuery', false);
 
-        await mongoose.connect(
-            config.mongo.url,
-            config.mongo.options
-        );
+            await mongoose.connect(
+                config.mongo.url,
+                config.mongo.options
+            );
+
+            LoggerService.logger.info('[DATABASE] Database initialized with success!');
+        } catch (error) {
+            LoggerService.logger.error('[DATABASE] Database failed to be initialized, aborting process!');
+            LoggerService.logger.error(error);
+            throw error;
+        }
     };
 
     /**
-     * Shuts down the database service.
+     * Cleans up anything that "init" may setup.
      *
-     * @returns {Promise<void>}
+     * @return {Promise<void>}
      */
-    static shutdown = async () => {
+    static cleanup = async () => {
         await mongoose.connection.close();
     };
 }

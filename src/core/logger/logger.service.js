@@ -10,14 +10,6 @@ export default class LoggerService {
      *
      * @type {Logger}
      */
-    static logger = null;
+    static logger = createWinstonLogger();
 
-    /**
-     * Initializes the logger service.
-     *
-     * @return {Promise<void>}
-     */
-    static init = async () => {
-        LoggerService.logger = createWinstonLogger();
-    };
 }
